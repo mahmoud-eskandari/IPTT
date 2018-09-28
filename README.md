@@ -1,14 +1,8 @@
-
-BrowsingData API: Basics
+IPTT (Price to time calculator)
 =======
+اکستنشن تبدیل مبلغ کالا به ساعت/دستمزد
 
-A trivial usage example.
-
-[Zipfile](http://developer.chrome.com/extensions/examples/api/browsingData/basic.zip)
-
-Content is licensed under the [Google BSD License](https://developers.google.com/open-source/licenses/bsd).
-
-Calls
+در وبسایتهای فروشگاهی دیجی‌کالا و بامیلو
 -----
 
-* [browsingData.remove](https://developer.chrome.com/extensions/browsingData#method-remove)
+* [Download from Chrome Webstore](https://chrome.google.com/webstore/detail/iptt/phoehnanhimojcbebjldknajipijlmhd)
