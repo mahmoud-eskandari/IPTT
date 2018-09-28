@@ -1,18 +1,15 @@
 body {
   margin: 5px;
-  background: darkslateblue;
+  background: #3367d6;
   direction: rtl;
+  width: 200px;
+  transition: transform 0.25s ease;
 }
 label {
   color: #FFF;
   font: 12px/1 Tahoma, sans-serif;
   margin: 0.5em 0;
   display: inline-block;
-}
-
-form {
-  transition: transform 0.25s ease;
-  width: 200px;
 }
 
 button {
@@ -36,7 +33,7 @@ button {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 200px;
+  width: 400px;
   padding: 20px;
   margin: -40px 0 0 -270px;
   opacity: 0;

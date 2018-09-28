@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hourly price calculator</title>
+<head>
+    <title>My time Calculator IPTT</title>
     <meta charset="UTF-8"/>
     <link href="popup.css" rel="stylesheet">
     <script src="popup.js"></script>
-  </head>
-  <body>
-    <div role="main" style="text-align: center">
-      <img src="icon.png" alt="Logo">
-      <form>
-        <label for="hourly_wages">مبلغ دستمزد شما به ساعت/تومان:</label>
-        <input id="hourly_wages" autocomplete="off" >
-        <button id="button">اعمال!</button>
-      </form>
-    </div>
-  </body>
+</head>
+<body>
+<div role="main" style="text-align: center">
+    <img src="icon.png" alt="Logo">
+    <label for="hourly_wages">مبلغ دستمزد شما به ساعت/تومان:</label>
+    <input id="hourly_wages" maxlength="6" autocomplete="off">
+    <hr>
+    <label for="switch">محاسبه گر:</label>
+    <input type="checkbox" checked id="switch">
+</div>
+</body>
 </html>

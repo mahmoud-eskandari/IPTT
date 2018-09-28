@@ -1,7 +1,8 @@
 {
-  "name": "IPTT",
-  "version": "0.1",
+  "name": "Price to my time",
+  "version": "0.1.1",
   "description": "Price to hourly wages convertor for famous iranian online markets (Digikala.com , Bamilo.com).",
+  "short_name": "Price to hourly wages",
   "permissions": [
     "storage"
   ],
