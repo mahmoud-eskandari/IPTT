@@ -52,7 +52,7 @@ TomanToHour = function (Toman, Rate) {
     price = toEnglish(Toman.replace(/[, ]/g, ''));
     hour = Math.floor(price / Rate);
     minute = (price / Rate) - hour;
-    return toPersian(hour) + ":" + toPersian(Math.round(minute * 60));
+    return toPersian(hour) + ":" + toPersian(Math.round(minute * 60))+ "عمر";
 };
 
 /**
@@ -69,25 +69,42 @@ RialToHour = function (Rial, Rate) {
     price = parseInt(toEnglish(Rial.replace(/[, ]/g, '')))/10;
     hour = Math.floor(price / Rate);
     minute = (price / Rate) - hour;
-    return toPersian(hour) + ":" + toPersian(Math.round(minute * 60));
+    return toPersian(hour) + ":" + toPersian(Math.round(minute * 60))+ "عمر";
 };
 ConvertTohourly = function () {
-    chrome.storage.sync.get(['hourly_wages'], function (result) {
-        if (typeof result.hourly_wages !== undefined) {
+    chrome.storage.sync.get(['hourly_wages','is_active'], function (result) {
+        if (result.is_active !== undefined && result.is_active === 0) {
+            return false;
+        }
+        if (result.hourly_wages !== undefined) {
 
             /**
              * DigiKala
              */
 
             if (window.location.href.indexOf('www.digikala.com') > -1) {
-                //Group 1
+
+                //Ware pages
                 $('.js-price-value,del').each(function () {
                     $(this).html(TomanToHour($(this).html(), result.hourly_wages));
                 });
-                //Group 2
+
+                //Sub Slider
                 $('.c-price__value:not(.js-variant-price)').each(function () {
                     $(this).html(TomanToHour($(this).html(), result.hourly_wages));
                 });
+
+                //Main Slider
+                $('.c-discount__price--original,.c-discount__price--now').each(function () {
+                    $(this).find('span').remove();
+                    $(this).html(TomanToHour($(this).text(), result.hourly_wages));
+                });
+
+                //Special Slider
+                $('.c-promo-single__price,.c-promo-single__discount').each(function () {
+                    $(this).html(TomanToHour($(this).text(), result.hourly_wages));
+                });
+
                 //Clear Toman
                 $('.c-price__currency').each(function () {
                     $(this).remove()
@@ -116,25 +133,6 @@ ConvertTohourly = function () {
                         }
                     });
                 },4000);
-                $('body').delegate('span,a','click',function () {
-                    setTimeout(function () {
-                        //Group 1
-                        $('[data-price],._6oBb.aVuo._3QXu.aiK9,._22Qe._9JX9._3Fln.e4Ka._7ppA').each(function () {
-                            $(this).html(RialToHour($(this).html(), result.hourly_wages));
-                        });
-                        //Clear Rial
-                        $('[data-currency-iso],span').each(function () {
-                            if($(this).html() == 'ریال'){
-                                $(this).remove()
-                            }
-                            if($(this).html().indexOf(',') > -1){
-                                if(toEnglish($(this).html()) > 0){
-                                    $(this).html(RialToHour($(this).html(), result.hourly_wages));
-                                }
-                            }
-                        });
-                    },4000);
-                });
 
             }
 
@@ -146,5 +144,14 @@ $(document).ready(function () {
     $('body').delegate('[data-event=config_change]', 'click', function () {
         setTimeout(ConvertTohourly, 1200)
     });
+    $('body').delegate('.c-pager__item', 'click', function () {
+        setTimeout(ConvertTohourly, 1200)
+    });
+	
+	if (window.location.href.indexOf('www.bamilo.com') > -1) {
+		$('body').delegate('span,a','click',function () {
+			setTimeout(ConvertTohourly, 1200)
+		});
+	}
     setTimeout(ConvertTohourly, 1200)
 });
