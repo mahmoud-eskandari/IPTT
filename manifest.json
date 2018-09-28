@@ -1,0 +1,25 @@
+{
+  "name": "IPTT",
+  "version": "0.1",
+  "description": "Price to hourly wages convertor for famous iranian online markets (Digikala.com , Bamilo.com).",
+  "permissions": [
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.digikala.com/*",
+        "https://www.bamilo.com/*"
+      ],
+      "js": [
+        "bundle.js",
+        "append_view.js"
+      ]
+    }
+  ]
+}
