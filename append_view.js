@@ -45,13 +45,16 @@ function toPersian(val) {
  * @returns {string}
  * @constructor
  */
-TomanToHour = function (Toman, Rate) {
+TomanToHour = function (Toman, Rate, DailyHours, Daily) {
     if (Toman.indexOf(',') < 0) {
         return Toman;
     }
     price = toEnglish(Toman.replace(/[, ]/g, ''));
     hour = Math.floor(price / Rate);
     minute = (price / Rate) - hour;
+    if (Daily == 1) {
+        return toPersian(Math.round((price / Rate)/DailyHours * 100)/100) + "عمر";    
+    }
     return toPersian(hour) + ":" + toPersian(Math.round(minute * 60))+ "عمر";
 };
 
@@ -62,17 +65,21 @@ TomanToHour = function (Toman, Rate) {
  * @returns {string}
  * @constructor
  */
-RialToHour = function (Rial, Rate) {
+RialToHour = function (Rial, Rate, DailyHours, Daily) {
     if (Rial.indexOf(',') < 0) {
         return Rial;
     }
     price = parseInt(toEnglish(Rial.replace(/[, ]/g, '')))/10;
     hour = Math.floor(price / Rate);
     minute = (price / Rate) - hour;
+    if (Daily == 1) {
+        return toPersian(Math.round((price / Rate)/DailyHours * 100)/100) + "عمر";    
+    }
     return toPersian(hour) + ":" + toPersian(Math.round(minute * 60))+ "عمر";
 };
+
 ConvertTohourly = function () {
-    chrome.storage.sync.get(['hourly_wages','is_active'], function (result) {
+    chrome.storage.sync.get(['hourly_wages', 'daily_hours', 'is_active', 'daily'], function (result) {
         if (result.is_active !== undefined && result.is_active === 0) {
             return false;
         }
@@ -86,23 +93,23 @@ ConvertTohourly = function () {
 
                 //Ware pages
                 $('.js-price-value,del').each(function () {
-                    $(this).html(TomanToHour($(this).html(), result.hourly_wages));
+                    $(this).html(TomanToHour($(this).html(), result.hourly_wages, result.daily_hours, result.daily));
                 });
 
                 //Sub Slider
                 $('.c-price__value:not(.js-variant-price)').each(function () {
-                    $(this).html(TomanToHour($(this).html(), result.hourly_wages));
+                    $(this).html(TomanToHour($(this).html(), result.hourly_wages, result.daily_hours, result.daily));
                 });
 
                 //Main Slider
                 $('.c-discount__price--original,.c-discount__price--now').each(function () {
                     $(this).find('span').remove();
-                    $(this).html(TomanToHour($(this).text(), result.hourly_wages));
+                    $(this).html(TomanToHour($(this).text(), result.hourly_wages, result.daily_hours, result.daily));
                 });
 
                 //Special Slider
                 $('.c-promo-single__price,.c-promo-single__discount').each(function () {
-                    $(this).html(TomanToHour($(this).text(), result.hourly_wages));
+                    $(this).html(TomanToHour($(this).text(), result.hourly_wages, result.daily_hours, result.daily));
                 });
 
                 //Clear Toman
@@ -119,7 +126,7 @@ ConvertTohourly = function () {
                 setTimeout(function () {
                     //Group 1
                     $('[data-price],._6oBb.aVuo._3QXu.aiK9,._22Qe._9JX9._3Fln.e4Ka._7ppA').each(function () {
-                        $(this).html(RialToHour($(this).html(), result.hourly_wages));
+                        $(this).html(RialToHour($(this).html(), result.hourly_wages, result.daily_hours, result.daily));
                     });
                     //Clear Rial
                     $('[data-currency-iso],span').each(function () {
@@ -128,7 +135,7 @@ ConvertTohourly = function () {
                         }
                         if($(this).html().indexOf(',') > -1){
                             if(toEnglish($(this).html()) > 0){
-                                $(this).html(RialToHour($(this).html(), result.hourly_wages));
+                                $(this).html(RialToHour($(this).html(), result.hourly_wages, result.daily_hours, result.daily));
                             }
                         }
                     });

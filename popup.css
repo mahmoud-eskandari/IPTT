@@ -44,7 +44,7 @@ button {
   transition: all 1.0s ease;
   transform: scale(0);
 }
-#hourly_wages{
+#hourly_wages, #daily_hours{
   width: 96%;
   padding: 1%;
 }
