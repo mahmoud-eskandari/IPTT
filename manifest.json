@@ -1,6 +1,6 @@
 {
   "name": "Iranian Lifetime Calculator",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Price to hourly wages convertor for famous Iranian online markets (Digikala.com , Bamilo.com).",
   "short_name": "Lifetime Calculator",
   "permissions": [
