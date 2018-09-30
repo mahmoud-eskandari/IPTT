@@ -1,5 +1,7 @@
 /**
  * Convert Persian Digits to English Digits
+ * @param val
+ * @returns {number}
  */
 function toEnglish(val) {
     var num_dic = {
@@ -21,6 +23,8 @@ function toEnglish(val) {
 
 /**
  * Convert English Digits to Persian Digits
+ * @param val
+ * @returns {string}
  */
 function toPersian(val) {
     var num_dic = {
@@ -47,23 +51,30 @@ function toPersian(val) {
 /**
  *
  * @param Toman
+ * @param Unit
  * @param Rate
- * @returns {string}
+ * @param DailyHours
+ * @param Daily
+ * @returns {*}
  * @constructor
  */
 LifeTimeCalculator = function (Toman, Unit, Rate, DailyHours, Daily) {
     if (Toman.indexOf(',') < 0) {
         return Toman;
     }
-    price = toEnglish(Toman.replace(/[, ]/g, ''));
+    var price = toEnglish(Toman.replace(/[, ]/g, ''));
+    //Affect Rial Calculator
     if (Unit === "Rial") {
         price /= 10;
     }
-
-    hour = Math.floor(price / Rate);
-    minute = (price / Rate) - hour;
-    if (Daily == 1) {
-        return toPersian(Math.round((price / Rate) / DailyHours * 100) / 100) + "روز";
+    var hour = Math.floor(price / Rate);
+    var minute = (price / Rate) - hour;
+    if (Daily === 1) {
+        var CalculatedDays = Math.round((price / Rate) / DailyHours * 100) / 100;
+        if(CalculatedDays > 30){
+            return toPersian(Math.floor(CalculatedDays/30))+" ماه و "+toPersian(Math.round(CalculatedDays%30)) + "روز";
+        }
+        return toPersian(CalculatedDays) + "روز";
     }
     return toPersian(hour) + ":" + toPersian(Math.round(minute * 60)) + "ساعت کار";
 };
@@ -76,7 +87,7 @@ CalculateLifeTime = function () {
         if (result.hourly_wages !== undefined) {
 
             /**
-             * DigiKala
+             * DigiKala Actions
              */
 
             if (window.location.href.indexOf('www.digikala.com') > -1) {
@@ -109,7 +120,7 @@ CalculateLifeTime = function () {
             }
 
             /**
-             * Bamilo
+             * Bamilo Actions
              */
 
             if (window.location.href.indexOf('www.bamilo.com') > -1) {
@@ -137,16 +148,27 @@ CalculateLifeTime = function () {
     });
 };
 $(document).ready(function () {
+    var Body = $('body');
 
-    $('body').delegate('[data-event=config_change]', 'click', function () {
-        setTimeout(CalculateLifeTime, 1200)
-    });
-    $('body').delegate('.c-pager__item', 'click', function () {
-        setTimeout(CalculateLifeTime, 1200)
-    });
+    //Digikala event listeners
+    if (window.location.href.indexOf('www.digikala.com') > -1) {
+        Body.delegate('[data-event=config_change]', 'click', function () {
+            setTimeout(CalculateLifeTime, 1200)
+        });
+        Body.delegate('.c-pager__item', 'click', function () {
+            setTimeout(CalculateLifeTime, 1200)
+        });
+        Body.delegate('input[type=checkbox]', 'change', function () {
+            setTimeout(CalculateLifeTime, 2000)
+        });
+        Body.delegate('[data-sort]', 'click', function () {
+            setTimeout(CalculateLifeTime, 2000)
+        });
+    }
 
+    //Digikala event listeners
     if (window.location.href.indexOf('www.bamilo.com') > -1) {
-        $('body').delegate('span,a', 'click', function () {
+        Body.delegate('span,a', 'click', function () {
             setTimeout(CalculateLifeTime, 1200)
         });
     }
