@@ -15,7 +15,11 @@
     {
       "matches": [
         "https://www.digikala.com/*",
-        "https://www.bamilo.com/*"
+        "https://www.bamilo.com/*",
+        "https://www.reyhoon.com/*",
+        "https://emalls.ir/*",
+        "https://torob.com/*",
+        "https://snappfood.ir/*"
       ],
       "js": [
         "bundle.js",

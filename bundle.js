@@ -1,3 +1,4 @@
+function toEnglishDigits(n){var r={"۰":"0","۱":"1","۲":"2","۳":"3","۴":"4","۵":"5","۶":"6","۷":"7","۸":"8","۹":"9"};return parseInt(n.replace(/[۰-۹]/g,function(n){return r[n]}))}function toPersianDigits(n){var r={0:"۰",1:"۱",2:"۲",3:"۳",4:"۴",5:"۵",6:"۶",7:"۷",8:"۸",9:"۹"};return(n=n.toString())<10&&(n="0"+n),n.replace(/[0-9]/g,function(n){return r[n]})}
 /**
  * Bundled and compressed from
  * https://github.com/madrobby/zepto/tree/master/src

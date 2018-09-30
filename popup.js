@@ -56,7 +56,7 @@ PopupController.prototype = {
     },
 
     /**
-     * 
+     *
      * @private
      */
     handleDaily_: function () {
@@ -65,16 +65,19 @@ PopupController.prototype = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     chrome.storage.sync.get(['hourly_wages', 'daily_hours', 'is_active', 'daily'], function (result) {
         document.getElementById('switch').checked = result.is_active !== 0;
         document.getElementById('daily').checked = result.daily !== 0;
 
+        if (result.daily === undefined) {
+            chrome.storage.sync.set({daily: true});
+        }
         if (result.hourly_wages === undefined) {
             chrome.storage.sync.set({hourly_wages: 12000});
-            document.getElementById('hourly_wages').value = 12000; 
+            document.getElementById('hourly_wages').value = 12000;
         } else {
-            document.getElementById('hourly_wages').value = result.hourly_wages; 
+            document.getElementById('hourly_wages').value = result.hourly_wages;
         }
 
         if (result.daily_hours === undefined) {
