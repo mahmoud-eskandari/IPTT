@@ -10,16 +10,16 @@
 <div role="main" style="text-align: center">
     <img src="icon.png" alt="Logo">
     <label for="hourly_wages">مبلغ دستمزد شما به ساعت/تومان:</label>
-    <input id="hourly_wages" maxlength="6" autocomplete="off">
+    <input type="text" id="hourly_wages" maxlength="6" autocomplete="off">
     <hr>
-    <label for="daily_hours">ساعت کار روزانه:</label>
-    <input id="daily_hours" maxlength="24" autocomplete="off">
+    <label for="daily_hours">میزان ساعت کار در روز:</label>
+    <input type="number" id="daily_hours" max="20" min="1" autocomplete="off">
     <hr>
     <label for="switch">محاسبه گر:</label>
     <input type="checkbox" checked id="switch">
     <hr>
-    <label for="switch">محاسبه براساس روز:</label>
-    <input type="checkbox" checked id="daily">
+    <label for="daily">محاسبه براساس روز:</label>
+    <input type="checkbox" id="daily">
 </div>
 </body>
 </html>
