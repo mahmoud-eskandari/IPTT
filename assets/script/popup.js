@@ -9,6 +9,14 @@ var PopupController = function () {
     this.addListeners_();
 };
 
+function sepereteDigit(_number ){
+    var input = _number.toString().replace(/[\D\s\._\-]+/g, "");
+    input = input ? parseInt( input, 10 ) : 0;
+    return ( input === 0 ) ? "" : input.toLocaleString("en-US") ;
+}// @function: sepereteDigit()
+
+
+
 PopupController.prototype = {
 
     /**
@@ -20,8 +28,13 @@ PopupController.prototype = {
         this.daily_hours.addEventListener('change', this.handledaily_hours_.bind(this));
         this.switch_.addEventListener('change', this.handleSwitch_.bind(this));
         this.daily_.addEventListener('change', this.handleDaily_.bind(this));
+        this.hourly_wages.addEventListener('keyup',this.handlehourly_wages_digit.bind(this))
     },
 
+    handlehourly_wages_digit: function(_el){
+        var val = _el.srcElement.value;
+        _el.srcElement.value = sepereteDigit(val);
+    },
 
     /**
      *
@@ -35,16 +48,16 @@ PopupController.prototype = {
      *
      * @private
      */
-    handlehourly_wages_: function () {
-        chrome.storage.sync.set({hourly_wages: document.getElementById('hourly_wages').value});
+    handlehourly_wages_: function (_el) {
+        chrome.storage.sync.set({hourly_wages: _el.srcElement.value.replace(/[\D\s\._\-]+/g, "") });
     },
 
     /**
      *
      * @private
      */
-    handledaily_hours_: function () {
-        chrome.storage.sync.set({daily_hours: document.getElementById('daily_hours').value});
+    handledaily_hours_: function (_el) {
+        chrome.storage.sync.set({daily_hours: _el.srcElement.value.value});
     },
 
     /**
@@ -75,9 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (result.hourly_wages === undefined) {
             chrome.storage.sync.set({hourly_wages: 12000});
-            document.getElementById('hourly_wages').value = 12000;
+            document.getElementById('hourly_wages').value = sepereteDigit( 12000 );
         } else {
-            document.getElementById('hourly_wages').value = result.hourly_wages;
+            document.getElementById('hourly_wages').value = sepereteDigit( result.hourly_wages );
         }
 
         if (result.daily_hours === undefined) {
@@ -86,7 +99,38 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             document.getElementById('daily_hours').value = result.daily_hours;
         }
+
+
     });
 
+
+
+ 
+
+
+
+
+
     window.PC = new PopupController();
+});
+
+
+
+chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+    if(
+        tabs[0].url.indexOf("https://www.digikala.com/") > -1 ||
+        tabs[0].url.indexOf("https://www.bamilo.com/") > -1 ||
+        tabs[0].url.indexOf("https://www.reyhoon.com/") > -1 ||
+        tabs[0].url.indexOf("https://emalls.ir/") > -1 ||
+        tabs[0].url.indexOf("https://torob.com/") > -1 ||
+        tabs[0].url.indexOf("https://snappfood.ir/") > -1  
+    ){
+        document.querySelector(".header").classList.add("active");
+        document.querySelector("._blank").classList.add("active");
+        document.querySelector(".input_wrap.form").classList.remove("_blure");
+    }else{
+        document.querySelector(".header").classList.remove("active");
+        document.querySelector("._blank").classList.remove("active");
+        document.querySelector(".input_wrap.form").classList.add("_blure");
+    }
 });
