@@ -28,7 +28,9 @@ PopupController.prototype = {
      * @private
      */
     addListeners_: function () {
+        this.hourly_wages.addEventListener('input', this.handlehourly_wages_.bind(this));
         this.hourly_wages.addEventListener('change', this.handlehourly_wages_.bind(this));
+        this.daily_hours.addEventListener('input', this.handledaily_hours_.bind(this));
         this.daily_hours.addEventListener('change', this.handledaily_hours_.bind(this));
         this.switch_.addEventListener('change', this.handleSwitch_.bind(this));
         this.daily_.addEventListener('change', this.handleDaily_.bind(this));
@@ -61,7 +63,7 @@ PopupController.prototype = {
      * @private
      */
     handledaily_hours_: function (_el) {
-        chrome.storage.sync.set({daily_hours: _el.srcElement.value.value});
+        chrome.storage.sync.set({daily_hours: _el.srcElement.value});
     },
 
     /**
