@@ -154,6 +154,34 @@ CalculateLifeTime = function () {
         }
 
         /**
+         * digistyle.com
+         */
+
+        if (window.location.href.indexOf('digistyle.com') > -1) {
+            //All Products
+            $('.old-price,.amount,.sb-osm-discount,.normal-price').each(function () {
+                $(this).html(LifeTimeCalculator($(this).html().replace('تومان',''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+            });
+            //Remove Toman
+            $('.currency').each(function () {
+                if ($(this).html().indexOf('تومان') > -1) {
+                    $(this).html('');
+                }
+            });
+        }
+
+        /**
+         * modiseh.com
+         */
+
+        if (window.location.href.indexOf('modiseh.com') > -1) {
+            //All Products
+            $('.price>span,.price>p,.price>s').each(function () {
+                $(this).html(LifeTimeCalculator($(this).html().replace(/٫/g,',').replace('ریال',''), "Rial", result.hourly_wages, result.daily_hours, result.daily));
+            });
+        }
+
+        /**
          * torob.com
          */
 
@@ -216,5 +244,10 @@ $(document).ready(function () {
             setTimeout(CalculateLifeTime, 1200)
         });
     }
-    setTimeout(CalculateLifeTime, 1200)
+
+    //Initialize
+    setTimeout(CalculateLifeTime, 1200);
+
+    //Check interval for xhr|lazy load actions
+    setInterval(CalculateLifeTime,8888);
 });

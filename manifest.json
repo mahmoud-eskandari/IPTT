@@ -1,6 +1,6 @@
 {
   "name": "Iranian Lifetime Calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Price to Lifetime calculator for famous Iranian online markets.",
   "short_name": "Lifetime Calculator",
   "permissions": [
@@ -28,6 +28,8 @@
         "https://www.reyhoon.com/*",
         "https://emalls.ir/*",
         "https://torob.com/*",
+        "https://www.modiseh.com/*",
+        "https://www.digistyle.com/*",
         "https://snappfood.ir/*"
       ],
       "js": [

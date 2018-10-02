@@ -108,12 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
     if(
-        tabs[0].url.indexOf("https://www.digikala.com/") > -1 ||
-        tabs[0].url.indexOf("https://www.bamilo.com/") > -1 ||
-        tabs[0].url.indexOf("https://www.reyhoon.com/") > -1 ||
-        tabs[0].url.indexOf("https://emalls.ir/") > -1 ||
-        tabs[0].url.indexOf("https://torob.com/") > -1 ||
-        tabs[0].url.indexOf("https://snappfood.ir/") > -1
+        tabs[0].url.indexOf("https://www.digikala.com") > -1 ||
+        tabs[0].url.indexOf("https://www.bamilo.com") > -1 ||
+        tabs[0].url.indexOf("https://www.reyhoon.com") > -1 ||
+        tabs[0].url.indexOf("https://emalls.ir") > -1 ||
+        tabs[0].url.indexOf("https://torob.com") > -1 ||
+        tabs[0].url.indexOf("https://www.digistyle.com") > -1 ||
+        tabs[0].url.indexOf("https://www.modiseh.com") > -1 ||
+        tabs[0].url.indexOf("https://snappfood.ir") > -1
     ){
         document.querySelector(".header").classList.add("active");
         document.querySelector("._blank").classList.add("active");
