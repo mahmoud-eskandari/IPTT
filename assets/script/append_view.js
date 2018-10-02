@@ -171,12 +171,6 @@ CalculateLifeTime = function () {
             $('.price-tag span').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/[٬]/g,','), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
-            //Remove Toman
-            /*$('span').each(function () {
-                if ($(this).html().indexOf('تومان') > -1) {
-                    $(this).html('');
-                }
-            });*/
         }
 
 
