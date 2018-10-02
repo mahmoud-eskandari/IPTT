@@ -1,8 +1,21 @@
-IPTT (Price to time calculator)
+#Iranian Lifetime Calculator
 =======
 اکستنشن تبدیل مبلغ کالا به ساعت/دستمزد
 
-در وبسایتهای فروشگاهی دیجی‌کالا و بامیلو
+در چندین وبسایت معروف ایرانی مثل:
+
+https://www.digikala.com/
+
+https://www.bamilo.com/
+
+https://www.reyhoon.com/
+
+https://emalls.ir/
+
+https://torob.com/
+
+https://snappfood.ir/
+
 -----
 
 ![](https://files.virgool.io/upload/users/3676/posts/wqw1r1eomani/qi02ij4s7jog.png)
