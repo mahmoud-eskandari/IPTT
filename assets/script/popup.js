@@ -28,7 +28,9 @@ PopupController.prototype = {
      * @private
      */
     addListeners_: function () {
+        this.hourly_wages.addEventListener('input', this.handlehourly_wages_.bind(this));
         this.hourly_wages.addEventListener('change', this.handlehourly_wages_.bind(this));
+        this.daily_hours.addEventListener('input', this.handledaily_hours_.bind(this));
         this.daily_hours.addEventListener('change', this.handledaily_hours_.bind(this));
         this.switch_.addEventListener('change', this.handleSwitch_.bind(this));
         this.daily_.addEventListener('change', this.handleDaily_.bind(this));
@@ -61,7 +63,7 @@ PopupController.prototype = {
      * @private
      */
     handledaily_hours_: function (_el) {
-        chrome.storage.sync.set({daily_hours: _el.srcElement.value.value});
+        chrome.storage.sync.set({daily_hours: _el.srcElement.value});
     },
 
     /**
@@ -108,12 +110,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
     if(
-        tabs[0].url.indexOf("https://www.digikala.com/") > -1 ||
-        tabs[0].url.indexOf("https://www.bamilo.com/") > -1 ||
-        tabs[0].url.indexOf("https://www.reyhoon.com/") > -1 ||
-        tabs[0].url.indexOf("https://emalls.ir/") > -1 ||
-        tabs[0].url.indexOf("https://torob.com/") > -1 ||
-        tabs[0].url.indexOf("https://snappfood.ir/") > -1
+        tabs[0].url.indexOf("https://www.digikala.com") > -1 ||
+        tabs[0].url.indexOf("https://www.bamilo.com") > -1 ||
+        tabs[0].url.indexOf("https://www.reyhoon.com") > -1 ||
+        tabs[0].url.indexOf("https://emalls.ir") > -1 ||
+        tabs[0].url.indexOf("https://torob.com") > -1 ||
+        tabs[0].url.indexOf("https://www.digistyle.com") > -1 ||
+        tabs[0].url.indexOf("https://www.modiseh.com") > -1 ||
+        tabs[0].url.indexOf("https://snappfood.ir") > -1
     ){
         document.querySelector(".header").classList.add("active");
         document.querySelector("._blank").classList.add("active");
