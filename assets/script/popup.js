@@ -107,15 +107,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-    var SupportedWebsites = [
-        "https://www.digikala.com/",
-        "https://www.bamilo.com/",
-        "https://www.reyhoon.com/",
-        "https://emalls.ir/",
-        "https://torob.com/",
-        "https://snappfood.ir/"
-    ];
-    if (SupportedWebsites.indexOf(tabs[0].url) > -1) {
+    if(
+        tabs[0].url.indexOf("https://www.digikala.com/") > -1 ||
+        tabs[0].url.indexOf("https://www.bamilo.com/") > -1 ||
+        tabs[0].url.indexOf("https://www.reyhoon.com/") > -1 ||
+        tabs[0].url.indexOf("https://emalls.ir/") > -1 ||
+        tabs[0].url.indexOf("https://torob.com/") > -1 ||
+        tabs[0].url.indexOf("https://snappfood.ir/") > -1
+    ){
         document.querySelector(".header").classList.add("active");
         document.querySelector("._blank").classList.add("active");
         document.querySelector(".btn_supported").classList.remove("active");
