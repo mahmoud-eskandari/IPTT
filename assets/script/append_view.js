@@ -104,12 +104,12 @@ CalculateLifeTime = function () {
         if (window.location.href.indexOf('snappfood.ir') > -1) {
             setTimeout(function () {
                 //Remove Toman
-                $('.kk-price-unit').each(function () {
+                $('.kk-price-unit,.price-unit').each(function () {
                     $(this).html('');
                 });
 
                 //Resturant Menu
-                $('.kk-price').each(function () {
+                $('.kk-price,.price-value').each(function () {
                     $(this).html(LifeTimeCalculator($(this).html().replace(/[,،]/g, ','), "Toman", result.hourly_wages, result.daily_hours, result.daily));
                 });
             }, 1500);
