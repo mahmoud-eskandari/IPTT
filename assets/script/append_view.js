@@ -179,7 +179,7 @@ var CalculateLifeTimeAction = function () {
         if (window.location.href.indexOf('bama.ir') > -1) {
             //All Ads page
             $('span[itemprop=price]').each(function () {
-                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, '').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                $(this).html(LifeTimeCalculator($(this).html().replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
             $('span[itemprop=priceCurrency]').each(function () {
                 $(this).html('');
