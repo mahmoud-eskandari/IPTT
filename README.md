@@ -6,31 +6,30 @@
 
 در چندین وبسایت معروف ایرانی مثل:
 
-        https://www.bamilo.com
-		
-        https://torob.com
-		
-        https://emalls.ir
-		
-        https://www.reyhoon.com
-		
-        https://www.banimode.com
-		
-        https://www.digikala.com
-		
-        https://www.digistyle.com
-		
-        https://www.modiseh.com
-		
-        https://www.shixon.com
-		
-        https://bama.ir
-		
-        https://divar.ir
-		
-        https://snappfood.ir
-		
-        https://www.shixon.com
+
+[digikala.com](https://www.digikala.com)
+
+[Bamilo.com](https://www.bamilo.com)
+
+[Torob.com](https://torob.com)
+
+[Emalls.ir](https://emalls.ir)
+
+[Reyhoon.com](https://www.reyhoon.com)
+
+[Bama.ir](https://bama.ir)
+
+[Digistyle.com](https://www.digistyle.com)
+
+[Modiseh.com](https://www.modiseh.com)
+
+[Divar.ir](https://divar.ir)
+
+[Snappfood.ir](https://snappfood.ir)
+
+[Shixon.com](https://www.shixon.com)
+
+[Banimode.com](https://www.banimode.com)
 
 
 
