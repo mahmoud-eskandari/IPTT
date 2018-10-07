@@ -118,7 +118,8 @@ chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
         "https://www.digikala.com",
         "https://www.digistyle.com",
         "https://www.modiseh.com",
-        "www.shixon.com",
+        "https://www.shixon.com",
+        "https://bama.ir",
         "https://snappfood.ir",
         "https://www.shixon.com"
     ];
