@@ -1,22 +1,37 @@
 # Iranian Lifetime Calculator
 
-=======
+
 
 اکستنشن تبدیل مبلغ کالا به ساعت/دستمزد
 
 در چندین وبسایت معروف ایرانی مثل:
 
-https://www.digikala.com/
 
-https://www.bamilo.com/
+[digikala.com](https://www.digikala.com)
 
-https://www.reyhoon.com/
+[Bamilo.com](https://www.bamilo.com)
 
-https://emalls.ir/
+[Torob.com](https://torob.com)
 
-https://torob.com/
+[Emalls.ir](https://emalls.ir)
 
-https://snappfood.ir/
+[Reyhoon.com](https://www.reyhoon.com)
+
+[Bama.ir](https://bama.ir)
+
+[Digistyle.com](https://www.digistyle.com)
+
+[Modiseh.com](https://www.modiseh.com)
+
+[Divar.ir](https://divar.ir)
+
+[Snappfood.ir](https://snappfood.ir)
+
+[Shixon.com](https://www.shixon.com)
+
+[Banimode.com](https://www.banimode.com)
+
+
 
 -----
 
