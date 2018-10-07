@@ -7,10 +7,6 @@
  * @constructor
  */
 var LifeTimeCalculator = function (PriceString, Unit, options) {
-    console.log(PriceString);
-    console.log(Unit);
-    console.log(options);
-    return;
     if (PriceString.indexOf(',') < 0) {
         return PriceString;
     }
