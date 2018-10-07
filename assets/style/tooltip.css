@@ -7,7 +7,7 @@
 
 [data-iptt] {
     position: relative;
-    z-index: 2;
+    z-index: 99999;
     cursor: pointer;
 }
 
@@ -36,6 +36,7 @@
     content: attr(data-iptt);
     text-align: center;
     font-size: 14px;
+    z-index: 999999;
     line-height: 1.2;
 }
 
@@ -50,6 +51,7 @@
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     content: " ";
+    z-index: 999999;
     font-size: 0;
     line-height: 0;
 }
