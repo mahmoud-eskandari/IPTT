@@ -7,6 +7,10 @@
  * @constructor
  */
 var LifeTimeCalculator = function (PriceString, Unit, options) {
+    console.log(PriceString);
+    console.log(Unit);
+    console.log(options);
+    return;
     if (PriceString.indexOf(',') < 0) {
         return PriceString;
     }
@@ -29,6 +33,10 @@ var LifeTimeCalculator = function (PriceString, Unit, options) {
 };
 
 var CalculateLifeTimeAction = function () {
+    //Check for storage
+    if (chrome === undefined || chrome.storage === undefined) {
+        return;
+    }
     chrome.storage.sync.get(['hourly_wages', 'daily_hours', 'is_active', 'daily', 'show_popup'], function (result) {
         if (result.is_active !== undefined && result.is_active === 0) {
             return;
@@ -67,7 +75,9 @@ var CalculateLifeTimeAction = function () {
 
             //Main Slider
             $('.c-discount__price--original,.c-discount__price--now').each(function () {
-                $(this).find('span').remove();
+                if (!result.show_popup) {
+                    $(this).find('span').remove();
+                }
                 if (result.show_popup) {
                     if ($(this).data('iptt') === undefined) {
                         $(this).data('iptt', LifeTimeCalculator($(this).text(), "Toman", result));
@@ -277,10 +287,10 @@ var CalculateLifeTimeAction = function () {
 
                     if (result.show_popup) {
                         if ($(this).data('iptt') === undefined) {
-                            $(this).data('iptt', Slice[0] + LifeTimeCalculator(Slice[1].replace(/[٫]/g, ',').replace('تومان', '')), "Toman", result);
+                            $(this).data('iptt', Slice[0] + LifeTimeCalculator(Slice[1].replace(/[٫]/g, ',').replace('تومان', ''), "Toman", result));
                         }
                     } else {
-                        $(this).html(Slice[0] + LifeTimeCalculator(Slice[1].replace(/[٫]/g, ',').replace('تومان', '')), "Toman", result);
+                        $(this).html(Slice[0] + LifeTimeCalculator(Slice[1].replace(/[٫]/g, ',').replace('تومان', ''), "Toman", result));
                     }
                 }
             });
