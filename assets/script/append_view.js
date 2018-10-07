@@ -78,24 +78,22 @@ var CalculateLifeTimeAction = function () {
          */
 
         if (window.location.href.indexOf('www.bamilo.com') > -1) {
-
-            //Group 1
-            $('[data-price],._6oBb.aVuo._3QXu.aiK9,._22Qe._9JX9._3Fln.e4Ka._7ppA').each(function () {
-                $(this).html(LifeTimeCalculator($(this).html(), "Rial", result.hourly_wages, result.daily_hours, result.daily));
-            });
-            //Clear Rial
-            $('[data-currency-iso],span').each(function () {
-                if ($(this).html().indexOf('ریال') > -1) {
+            NumberRegex = /^(([۰-۹]{1,3})[,]){1,3}/gm;
+            //Replace all and remove Rial
+            $('span').each(function () {
+                if ($(this).html() === 'ریال') {
                     $(this).remove()
                 }
-                if ($(this).html().indexOf(',') > -1) {
-                    if (toEnglishDigits($(this).html()) > 0) {
-                        $(this).html(LifeTimeCalculator($(this).html(), "Rial", result.hourly_wages, result.daily_hours, result.daily));
-                    }
+                if (NumberRegex.exec($(this).html()) !== null) {
+                    $(this).html(LifeTimeCalculator($(this).html(), "Rial", result.hourly_wages, result.daily_hours, result.daily));
                 }
+                /*  if ($(this).html().indexOf(',') > -1) {
+                      if (toEnglishDigits($(this).html()) > 0) {
+                          $(this).html(LifeTimeCalculator($(this).html(), "Rial", result.hourly_wages, result.daily_hours, result.daily));
+                      }
+                  }*/
             });
             return;
-
         }
 
         /**
@@ -287,10 +285,7 @@ var CalculateLifeTimeAction = function () {
             $('.price-tag span').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/[٬]/g, ','), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
-
-            return;
         }
-
 
     });
 };
