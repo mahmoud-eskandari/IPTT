@@ -1,6 +1,6 @@
 {
   "name": "Iranian Lifetime Calculator",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "Price to Lifetime calculator for famous Iranian online markets.",
   "short_name": "Lifetime Calculator",
   "permissions": [
@@ -39,7 +39,9 @@
       "js": [
         "./assets/script/bundle.js",
         "./assets/script/append_view.js"
-      ]
+      ],"css":[
+      "./assets/style/tooltip.css"
+    ]
     }
   ]
 }
