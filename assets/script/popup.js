@@ -118,10 +118,12 @@ chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
         "https://www.digikala.com",
         "https://www.digistyle.com",
         "https://www.modiseh.com",
-        "https://snappfood.ir"
+        "www.shixon.com",
+        "https://snappfood.ir",
+        "https://www.shixon.com"
     ];
     var _is_supported = false;
-    for(var i=SupportedLifetimeWebsites.length;i>0;i--){
+    for(var i=SupportedLifetimeWebsites.length-1;i>=0;i--){
         if(tabs[0].url.indexOf(SupportedLifetimeWebsites[i]) > -1){
             _is_supported = true;
             break;

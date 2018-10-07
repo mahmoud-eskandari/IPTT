@@ -169,13 +169,42 @@ var CalculateLifeTimeAction = function () {
         }
 
         /**
-         * modiseh.com
+         * Banimode.com
          */
 
         if (window.location.href.indexOf('www.banimode.com') > -1) {
             //All Products
             $('span.price.persian,span.price.old.persian').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+            });
+        }
+
+        /**
+         * Shixon.com
+         */
+
+        if (window.location.href.indexOf('www.shixon.com') > -1) {
+            //Main page
+            $('.price2,.price1').each(function () {
+                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+            });
+            $('.ProductPrice2').each(function () {
+                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+            });
+            $('.ProductPrice').each(function () {
+                ExplodeDashes = $(this).html().split('-');
+                Out = [];
+                for(i=ExplodeDashes.length-1;i>=0;i--){
+                    Out.push(LifeTimeCalculator(ExplodeDashes[i].replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                }
+                $(this).html(Out.join('-'));
+            });
+            //Product Page
+            $('span[itemprop=price],.ProductPriceSale').each(function () {
+                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' '), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+            });
+            $('.productPriceHolder .ProdunctSmall,span.ProdunctSmall2').each(function () {
+                $(this).html('');
             });
         }
 
