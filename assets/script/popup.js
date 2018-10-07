@@ -120,6 +120,7 @@ chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
         "https://www.modiseh.com",
         "https://www.shixon.com",
         "https://bama.ir",
+        "https://divar.ir",
         "https://snappfood.ir",
         "https://www.shixon.com"
     ];

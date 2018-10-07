@@ -70,6 +70,7 @@ var CalculateLifeTimeAction = function () {
             $('.c-price__currency').each(function () {
                 $(this).remove()
             });
+            return;
         }
 
         /**
@@ -93,6 +94,7 @@ var CalculateLifeTimeAction = function () {
                     }
                 }
             });
+            return;
 
         }
 
@@ -111,6 +113,7 @@ var CalculateLifeTimeAction = function () {
             $('.kk-price,.price-value').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/[,،]/g, ','), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
+            return;
         }
 
         /**
@@ -128,6 +131,7 @@ var CalculateLifeTimeAction = function () {
             $('p[itemprop=price]').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html(), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
+            return;
         }
 
         /**
@@ -149,6 +153,7 @@ var CalculateLifeTimeAction = function () {
                     $(this).html('');
                 }
             });
+            return;
         }
 
         /**
@@ -166,6 +171,7 @@ var CalculateLifeTimeAction = function () {
                     $(this).html('');
                 }
             });
+            return;
         }
 
         /**
@@ -175,11 +181,38 @@ var CalculateLifeTimeAction = function () {
         if (window.location.href.indexOf('bama.ir') > -1) {
             //All Ads page
             $('span[itemprop=price]').each(function () {
-                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, '').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
             $('span[itemprop=priceCurrency]').each(function () {
                 $(this).html('');
             });
+            return;
+        }
+
+        /**
+         * Divar.ir
+         */
+
+        if (window.location.href.indexOf('divar.ir') > -1) {
+            PriceItems = $(".item div.value");
+            //Single Ad page
+            if (PriceItems.length > 0) {
+                PriceItems.each(function () {
+                    if ($(this).html().indexOf('تومان') > -1) {
+                        $(this).html(LifeTimeCalculator($(this).html().replace(/[٫]/g, ',').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                    }
+                });
+            }
+
+
+            //All Ads page
+            $('.price>span>label').each(function () {
+                if ($(this).html().indexOf('تومان') > -1) {
+                    Slice = $(this).html().split(':');
+                    $(this).html(Slice[0] + LifeTimeCalculator(Slice[1].replace(/[٫]/g, ',').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                }
+            });
+            return;
         }
 
         /**
@@ -189,8 +222,9 @@ var CalculateLifeTimeAction = function () {
         if (window.location.href.indexOf('www.banimode.com') > -1) {
             //All Products
             $('span.price.persian,span.price.old.persian').each(function () {
-                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
+                $(this).html(LifeTimeCalculator($(this).html().replace(/[ ]/g, '').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
+            return;
         }
 
         /**
@@ -208,7 +242,7 @@ var CalculateLifeTimeAction = function () {
             $('.ProductPrice').each(function () {
                 ExplodeDashes = $(this).html().split('-');
                 Out = [];
-                for(i=ExplodeDashes.length-1;i>=0;i--){
+                for (i = ExplodeDashes.length - 1; i >= 0; i--) {
                     Out.push(LifeTimeCalculator(ExplodeDashes[i].replace(/[ ]/g, ' ').replace('تومان', ''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
                 }
                 $(this).html(Out.join('-'));
@@ -220,6 +254,7 @@ var CalculateLifeTimeAction = function () {
             $('.productPriceHolder .ProdunctSmall,span.ProdunctSmall2').each(function () {
                 $(this).html('');
             });
+            return;
         }
 
         /**
@@ -231,6 +266,7 @@ var CalculateLifeTimeAction = function () {
             $('.price>span,.price>p,.price>s').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/٫/g, ',').replace('ریال', ''), "Rial", result.hourly_wages, result.daily_hours, result.daily));
             });
+            return;
         }
 
         /**
@@ -251,6 +287,8 @@ var CalculateLifeTimeAction = function () {
             $('.price-tag span').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace(/[٬]/g, ','), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
+
+            return;
         }
 
 
