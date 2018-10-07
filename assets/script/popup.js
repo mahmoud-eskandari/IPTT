@@ -121,8 +121,7 @@ chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
         "https://www.shixon.com",
         "https://bama.ir",
         "https://divar.ir",
-        "https://snappfood.ir",
-        "https://www.shixon.com"
+        "https://snappfood.ir"
     ];
     var _is_supported = false;
     for(var i=SupportedLifetimeWebsites.length-1;i>=0;i--){
