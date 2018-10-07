@@ -159,7 +159,7 @@ CalculateLifeTime = function () {
 
         if (window.location.href.indexOf('digistyle.com') > -1) {
             //All Products
-            $('.old-price,.amount,.sb-osm-discount,.normal-price').each(function () {
+            $('.old-price span,.sb-old-price,.amount,.sb-osm-discount,.normal-price').each(function () {
                 $(this).html(LifeTimeCalculator($(this).html().replace('تومان',''), "Toman", result.hourly_wages, result.daily_hours, result.daily));
             });
             //Remove Toman
