@@ -1,11 +1,41 @@
-IPTT (Price to time calculator)
-=======
+# Iranian Lifetime Calculator
+
+
+
 اکستنشن تبدیل مبلغ کالا به ساعت/دستمزد
 
-در وبسایتهای فروشگاهی دیجی‌کالا و بامیلو
+در چندین وبسایت معروف ایرانی مثل:
+
+
+[digikala.com](https://www.digikala.com)
+
+[Bamilo.com](https://www.bamilo.com)
+
+[Torob.com](https://torob.com)
+
+[Emalls.ir](https://emalls.ir)
+
+[Reyhoon.com](https://www.reyhoon.com)
+
+[Bama.ir](https://bama.ir)
+
+[Digistyle.com](https://www.digistyle.com)
+
+[Modiseh.com](https://www.modiseh.com)
+
+[Divar.ir](https://divar.ir)
+
+[Snappfood.ir](https://snappfood.ir)
+
+[Shixon.com](https://www.shixon.com)
+
+[Banimode.com](https://www.banimode.com)
+
+
+
 -----
 
-![](https://files.virgool.io/upload/users/3676/posts/m2saanql80wb/cmxgqdcokan5.png)
+![](https://files.virgool.io/upload/users/3676/posts/wqw1r1eomani/qi02ij4s7jog.png)
 
 داستان ساخت این افزونه از اونجایی که شروع شد که جاوید ایزدفر یه تصویر از افزونه ای که اسمش رو گذاشته بود  "عمر من" با همین مضمون در توییتر منتشر کرد و من برام جالب شد این قضیه و دوست داشتم ریلیزش کنه و اما این کار رو نکرد.
 
@@ -18,15 +48,16 @@ IPTT (Price to time calculator)
 طریقه ی استفاده:
 ابتدا از لینک زیر
 
-https://chrome.google.com/webstore/detail/price-to-my-time/phoehnanhimojcbebjldknajipijlmhd
+https://chrome.google.com/webstore/detail/iranian-lifetime-calculat/phoehnanhimojcbebjldknajipijlmhd
 
 اکستنشن را نصب کنید سپس طبق تصویر زیر بر روی آیکون افزونه کلیک کنید و میزان دستمزد خود را بر حسب ساعت/تومان وارد نمایید:
 
-![](https://files.virgool.io/upload/users/3676/posts/m2saanql80wb/1ofpephzjm3y.png)
+![](https://files.virgool.io/upload/users/3676/posts/wqw1r1eomani/0ifkurcuijmb.png)
 
-تیک "محاسبه گر" اگر فعال باشد این اکستنشن کار میکند و به جای نمایش مبلغ در دیجی کالا و بامیلو میزان ساعت از عمرتون که باید کار کنید و این جنس رو بخرید رو نشون خواهد داد طبق تصویر اول.
+تیک "محاسبه گر" اگر فعال باشد این اکستنشن کار میکند و به جای نمایش مبلغ در  وبسایتها میزان ساعت از عمرتون که باید کار کنید و این جنس رو بخرید رو نشون خواهد داد طبق تصویر اول.
 
 میزان به صورت ساعت:دقیقه مشخص شده است.
+ اگر تیک محاسبه بر حسب روز فعال باشد تعداد روزهایی که باید کار کنید به جای ساعت به نمایش در خواهد آمد.
 
 
 این افزونه در نسخه اولیه میباشد لذا اگر باگ و اشکالی هست را در ریپازیتوری گیتهاب گزارش نمایید.

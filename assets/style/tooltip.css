@@ -1,0 +1,65 @@
+
+[data-iptt],
+[data-iptt]:before,
+[data-iptt]:after {
+    box-sizing: inherit;
+}
+
+[data-iptt] {
+    position: relative;
+    z-index: 99999;
+    cursor: pointer;
+}
+
+[data-iptt]:before,
+[data-iptt]:after {
+    visibility: hidden;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+[data-iptt]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(16, 100%, 50%, 0.88);
+    color: #fff;
+    content: attr(data-iptt);
+    text-align: center;
+    font-size: 14px;
+    z-index: 999999;
+    line-height: 1.2;
+}
+
+[data-iptt]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid hsla(16, 100%, 50%, 0.88);
+    border-top: 5px solid hsla(16, 100%, 50%, 0.88);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    z-index: 999999;
+    font-size: 0;
+    line-height: 0;
+}
+
+[data-iptt]:hover:before,
+[data-iptt]:hover:after {
+    visibility: visible;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+

@@ -30,8 +30,9 @@
     box-sizing: border-box;
 }
 
-img{
-    width: 100%;height: auto;
+img {
+    width: 100%;
+    height: auto;
 }
 
 body {
@@ -40,13 +41,12 @@ body {
     width: 240px;
     padding: 10px 12px;
     margin: 0;
-    font-family: IRANSans;
+    font-family: IRANSans, Tahoma;
     font-size: 86%;
 }
 
 [type=text],
 [type=number] {
-    border: none;
     border-radius: 3px;
     padding: 6px !important;
     outline: none;
@@ -54,15 +54,15 @@ body {
     background: #eee;
     box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .2);
     transition: all .3s linear;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
 }
 
-[type=text]:focus,[type=number]:focus{
-    box-shadow:  1px 1px 6px rgba(0, 0, 0, .3);
+[type=text]:focus, [type=number]:focus {
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, .3);
     border-color: #2196F3;
 }
 
-[type=text]:hover,[type=number]:hover{
+[type=text]:hover, [type=number]:hover {
     border-color: orangered;
 }
 
@@ -70,47 +70,52 @@ label {
     margin: 0.5em 0;
     display: inline-block;
 }
-.main{
+
+.main {
     position: relative;
 }
-._blure{
+
+._blure {
     filter: blur(2px);
 }
-._blank{
-    position: absolute!important;
+
+._blank {
+    position: absolute !important;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display:block;
+    display: block;
     z-index: 2;
 }
 
-._blank.active{
+._blank.active {
     display: none;
 }
 
-.input_wrap > .input_wrap{
+.input_wrap > .input_wrap {
     transition: all .2s linear;
 }
-.input_wrap > .input_wrap:hover{
-    box-shadow:  2px 2px 6px rgba(0, 0, 0, .3);
+
+.input_wrap > .input_wrap:hover {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .3);
 }
 
-.input_wrap > .input_wrap label{
+.input_wrap > .input_wrap label {
     cursor: pointer;
 }
 
-
-.header{
+.header {
     transition: all .2s linear;
     transform: scale(0.9);
     filter: grayscale(100%);
 }
-.header.active{
+
+.header.active {
     filter: none;
 }
-.header.active:hover{
+
+.header.active:hover {
     transform: scale(1.03);
 }
 
@@ -134,8 +139,7 @@ label {
     text-shadow: 1px 1px 6px rgba(170, 170, 170, .4);
 }
 
-
-.input_wrap.form>div {
+.input_wrap.form > div {
     position: relative;
     margin-top: 10px
 }
@@ -149,30 +153,39 @@ label {
 
 .input_wrap.form .icon.clock {
     width: 16px;
-    right: 6px;
+    left: 6px;
     color: orangered;
     height: 16px;
 }
 
 .input_wrap.form .icon.doller {
     width: 8px;
-    right: 10px;
+    left: 6px;
     color: orangered;
     height: 18px;
 }
 
-.input_wrap.form>div>label {
+.input_wrap.form > div > label {
     border-right: 2px solid orangered;
     padding-right: 4px;
 
 }
 
-.input_wrap.form>div:first-of-type {
+.input_wrap.form > div:first-of-type {
     margin-top: 0;
 }
 
 .input_wrap.form input {
-    padding-right: 32px !important;
+    direction: ltr;
+    box-sizing: border-box;
+}
+
+#hourly_wages {
+    padding-left: 18px !important;
+}
+
+#daily_hours {
+    padding-left: 26px !important;
 }
 
 .btn_switch {
@@ -209,7 +222,7 @@ label {
     transition: .4s;
 }
 
-.btn_switch input:checked+span.slider:before {
+.btn_switch input:checked + span.slider:before {
     -webkit-transform: translateX(18px);
     transform: translateX(18px);
 }
@@ -218,7 +231,7 @@ label {
     border-radius: 50%;
 }
 
-.btn_switch input:checked+span.slider {
+.btn_switch input:checked + span.slider {
     background-color: orangered;
 }
 
@@ -230,18 +243,40 @@ label {
     background: #fff;
     border-radius: 3px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, .2);
-    padding: 0px 6px;
+    padding: 0 6px;
     overflow: hidden;
     line-height: 22px;
     position: relative;
 }
 
-.input_wrap>label {
+.input_wrap > label {
     float: right;
 }
 
-.input_wrap>.btn_switch {
+.input_wrap > .btn_switch {
     float: left;
+}
+
+.btn_supported {
+    top: 67px;
+    width: 100%;
+    display: none;
+    z-index: 9999;
+    padding: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    border-radius: 5px;
+    background: #2D527C;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    -webkit-border-radius: 5px;
+    font: 14px IRANSans, Tahoma;
+}
+
+.btn_supported.active {
+    display: block;
 }
 
 .footer {
