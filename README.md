@@ -66,10 +66,15 @@ https://chrome.google.com/webstore/detail/iranian-lifetime-calculat/phoehnanhimo
 </p>
 
 - [Download from Chrome Webstore](https://chrome.google.com/webstore/detail/iranian-lifetime-calculat/phoehnanhimojcbebjldknajipijlmhd)
-
-\*[لینک مقاله در ویرگول](https://virgool.io/@mahmoudetc/%D8%A7%DA%A9%D8%B3%D8%AA%D9%86%D8%B4%D9%86-%DA%A9%D8%B1%D9%88%D9%85-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%82%DB%8C%D9%85%D8%AA-%D8%A8%D9%87-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D8%B3%D8%AA%D9%85%D8%B2%D8%AF-m2saanql80wb)
+  <p dir="rtl">
+  <a href="https://virgool.io/@mahmoudetc/%D8%A7%DA%A9%D8%B3%D8%AA%D9%86%D8%B4%D9%86-%DA%A9%D8%B1%D9%88%D9%85-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%82%DB%8C%D9%85%D8%AA-%D8%A8%D9%87-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D8%B3%D8%AA%D9%85%D8%B2%D8%AF-m2saanql80wb">
+  لینک مقاله در ویرگول
+  </a>
+  </p>
 
 ## Developing & Contributing
+
+We love contributor and always welcomes pull requests, bug reporting, and bug squashing!
 
 ```bash
 # Install dependency
@@ -80,9 +85,22 @@ $ npm install
 # Run Prettier and Eslint for all files.
 $ npm run fix
 
-# Runs Prettier on your changed files Atlist Eslint.
+# Runs Prettier on your changed files, Atlist Eslint.
 $ npm run prettier-dev
 ```
+
+#### Help Links:
+
+<a href="https://developer.chrome.com/extensions/getstarted">
+Get start create Chrome extension.
+</a>
+
+ <a href="https://developer.chrome.com/extensions/tut_debugging"> 
+ How Debug Extension in Chrome? </a>
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">
+Get start create Firefox extension.
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Debugging"> How Debug Extension in Firefox? </a>
 
 ## License
 
