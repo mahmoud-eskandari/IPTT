@@ -1,151 +1,138 @@
+/* eslint-disable no-useless-escape */
+/* global browser, chrome */
 /**
  * @constructor
  */
 var PopupController = function () {
-    this.hourly_wages = document.getElementById('hourly_wages');
-    this.daily_hours = document.getElementById('daily_hours');
-    this.switch_ = document.getElementById('switch');
-    this.daily_ = document.getElementById('daily');
-    this.show_popup_ = document.getElementById('show_popup');
-    this.addListeners_();
+  this.hourly_wages = document.getElementById('hourly_wages');
+  this.daily_hours = document.getElementById('daily_hours');
+  this.switch_ = document.getElementById('switch');
+  this.daily_ = document.getElementById('daily');
+  this.addListeners_();
 };
 
-/**
- * Comma seperator
- * @param _number
- * @returns {string}
- */
-function SeparateDigit(_number) {
-    var input = _number.toString().replace(/[\D\s\._\-]+/g, "");
-    input = input ? parseInt(input, 10) : 0;
-    return (input === 0) ? "" : input.toLocaleString("en-US");
-}
-
+function sepereteDigit (_number) {
+  var input = _number.toString().replace(/[\D\s\._\-]+/g, '');
+  input = input ? parseInt(input, 10) : 0;
+  return input === 0 ? '' : input.toLocaleString('en-US');
+} // @function: sepereteDigit()
 
 PopupController.prototype = {
+  /**
+   *
+   * @private
+   */
+  addListeners_: function () {
+    this.hourly_wages.addEventListener(
+      'change',
+      this.handlehourly_wages_.bind(this)
+    );
+    this.daily_hours.addEventListener(
+      'change',
+      this.handledaily_hours_.bind(this)
+    );
+    this.switch_.addEventListener('change', this.handleSwitch_.bind(this));
+    this.daily_.addEventListener('change', this.handleDaily_.bind(this));
+    this.hourly_wages.addEventListener(
+      'keyup',
+      this.handlehourly_wages_digit.bind(this)
+    );
+  },
 
-    /**
-     *
-     * @private
-     */
-    addListeners_: function () {
-        this.hourly_wages.addEventListener('input', this.handlehourly_wages_.bind(this));
-        this.hourly_wages.addEventListener('change', this.handlehourly_wages_.bind(this));
-        this.daily_hours.addEventListener('input', this.handledaily_hours_.bind(this));
-        this.daily_hours.addEventListener('change', this.handledaily_hours_.bind(this));
-        this.switch_.addEventListener('change', this.handleSwitch_.bind(this));
-        this.daily_.addEventListener('change', this.handleDaily_.bind(this));
-        this.show_popup_.addEventListener('change', this.handle_show_popup_.bind(this));
-        this.hourly_wages.addEventListener('keyup', this.handlehourly_wages_digit.bind(this))
-    },
+  handlehourly_wages_digit: function (_el) {
+    var val = _el.srcElement.value;
+    _el.srcElement.value = sepereteDigit(val);
+  },
 
-    handlehourly_wages_digit: function (_el) {
-        var val = _el.srcElement.value;
-        _el.srcElement.value = SeparateDigit(val);
-    },
-    /**
-     *
-     * @private
-     */
-    handlehourly_wages_: function (_el) {
-        chrome.storage.sync.set({hourly_wages: _el.srcElement.value.replace(/[\D\s\._\-]+/g, "")});
-    },
+  /**
+   *
+   * @private
+   */
+  handleCallback_: function () {
+    console.log('handleCallback_');
+  },
 
-    /**
-     *
-     * @private
-     */
-    handledaily_hours_: function (_el) {
-        chrome.storage.sync.set({daily_hours: _el.srcElement.value});
-    },
+  /**
+   *
+   * @private
+   */
+  handlehourly_wages_: function (_el) {
+    browser.storage.sync.set({
+      hourly_wages: _el.srcElement.value.replace(/[\D\s\._\-]+/g, '')
+    });
+  },
 
-    /**
-     *
-     * @private
-     */
-    handleSwitch_: function () {
-        chrome.storage.sync.set({is_active: this.switch_.checked ? 1 : 0});
-    },
+  /**
+   *
+   * @private
+   */
+  handledaily_hours_: function (_el) {
+    browser.storage.sync.set({ daily_hours: _el.srcElement.value });
+  },
 
-    /**
-     *
-     * @private
-     */
-    handleDaily_: function () {
-        chrome.storage.sync.set({daily: this.daily_.checked ? 1 : 0})
-    },
-    /**
-     *
-     * @private
-     */
-    handle_show_popup_: function () {
-        chrome.storage.sync.set({show_popup: this.show_popup_.checked ? 1 : 0})
-    }
+  /**
+   *
+   * @private
+   */
+  handleSwitch_: function () {
+    browser.storage.sync.set({ is_active: this.switch_.checked ? 1 : 0 });
+  },
+
+  /**
+   *
+   * @private
+   */
+  handleDaily_: function () {
+    browser.storage.sync.set({ daily: this.daily_.checked ? 1 : 0 });
+  }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    chrome.storage.sync.get(['hourly_wages', 'daily_hours', 'is_active', 'daily', 'show_popup'], function (result) {
-        if (result.daily === undefined) {
-            chrome.storage.sync.set({daily: 0});
-        }
-        if (result.show_popup === undefined) {
-            chrome.storage.sync.set({show_popup: 1});
-        }
-        if (result.hourly_wages === undefined) {
-            chrome.storage.sync.set({hourly_wages: 12000});
-            document.getElementById('hourly_wages').value = SeparateDigit(12000);
-        } else {
-            document.getElementById('hourly_wages').value = SeparateDigit(result.hourly_wages);
-        }
+  browser.storage.sync
+    .get(['hourly_wages', 'daily_hours', 'is_active', 'daily'])
+    .then(function (result) {
+      document.getElementById('switch').checked = result.is_active !== 0;
+      document.getElementById('daily').checked = result.daily !== 0;
 
-        if (result.daily_hours === undefined) {
-            chrome.storage.sync.set({daily_hours: 8});
-            document.getElementById('daily_hours').value = 8;
-        } else {
-            document.getElementById('daily_hours').value = result.daily_hours;
-        }
+      if (result.daily === undefined) {
+        browser.storage.sync.set({ daily: true });
+      }
+      if (result.hourly_wages === undefined) {
+        browser.storage.sync.set({ hourly_wages: 12000 });
+        document.getElementById('hourly_wages').value = sepereteDigit(12000);
+      } else {
+        document.getElementById('hourly_wages').value = sepereteDigit(
+          result.hourly_wages
+        );
+      }
 
-        document.getElementById('switch').checked = result.is_active !== 0;
-        document.getElementById('daily').checked = result.daily === 1;
-        document.getElementById('show_popup').checked = result.show_popup !== 0;
+      if (result.daily_hours === undefined) {
+        browser.storage.sync.set({ daily_hours: 8 });
+        document.getElementById('daily_hours').value = 8;
+      } else {
+        document.getElementById('daily_hours').value = result.daily_hours;
+      }
     });
-    window.PC = new PopupController();
+
+  window.PC = new PopupController();
 });
 
-
-chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-    var SupportedLifetimeWebsites = [
-        "https://www.bamilo.com",
-        "https://torob.com",
-        "https://emalls.ir",
-        "https://www.reyhoon.com",
-        "https://www.banimode.com",
-        "https://www.digikala.com",
-        "https://www.digistyle.com",
-        "https://www.modiseh.com",
-        "https://www.shixon.com",
-        "https://bama.ir",
-        "https://divar.ir",
-        "https://snappfood.ir"
-    ];
-    var _is_supported = false;
-    for(var i=SupportedLifetimeWebsites.length-1;i>=0;i--){
-        if(tabs[0].url.indexOf(SupportedLifetimeWebsites[i]) > -1){
-            _is_supported = true;
-            break;
-        }
-    }
-
-    //Check current page is supported or no!
-    if(_is_supported){
-        document.querySelector(".header").classList.add("active");
-        document.querySelector("._blank").classList.add("active");
-        document.querySelector(".btn_supported").classList.remove("active");
-        document.querySelector(".input_wrap.form").classList.remove("_blure");
-    } else {
-        document.querySelector(".header").classList.remove("active");
-        document.querySelector("._blank").classList.remove("active");
-        document.querySelector(".btn_supported").classList.add("active");
-        document.querySelector(".input_wrap.form").classList.add("_blure");
-    }
+// MDN: This API is based on Chromium's chrome.tabs API. so in firefox and chrome work.
+chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+  if (
+    tabs[0].url.indexOf('https://www.digikala.com/') > -1 ||
+    tabs[0].url.indexOf('https://www.bamilo.com/') > -1 ||
+    tabs[0].url.indexOf('https://www.reyhoon.com/') > -1 ||
+    tabs[0].url.indexOf('https://emalls.ir/') > -1 ||
+    tabs[0].url.indexOf('https://torob.com/') > -1 ||
+    tabs[0].url.indexOf('https://snappfood.ir/') > -1
+  ) {
+    document.querySelector('.header').classList.add('active');
+    document.querySelector('._blank').classList.add('active');
+    document.querySelector('.input_wrap.form').classList.remove('_blure');
+  } else {
+    document.querySelector('.header').classList.remove('active');
+    document.querySelector('._blank').classList.remove('active');
+    document.querySelector('.input_wrap.form').classList.add('_blure');
+  }
 });

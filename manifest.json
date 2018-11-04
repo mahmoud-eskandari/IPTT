@@ -3,10 +3,13 @@
   "version": "2.0.2",
   "description": "Price to Lifetime calculator for famous Iranian online markets.",
   "short_name": "Lifetime Calculator",
-  "permissions": [
-    "storage",
-    "tabs"
-  ],
+  "applications": {
+    "gecko": {
+      "id": "addon@example.com",
+      "strict_min_version": "42.0"
+    }
+  },
+  "permissions": ["storage", "tabs"],
   "browser_action": {
     "default_icon": "./assets/img/time.png",
     "default_popup": "popup.html"
@@ -17,7 +20,7 @@
     "32": "./assets/img/icons/time_32.png",
     "64": "./assets/img/icons/time_64.png",
     "128": "./assets/img/icons/time_128.png",
-    "256":"./assets/img/icons/time_256.png"
+    "256": "./assets/img/icons/time_256.png"
   },
   "manifest_version": 2,
   "content_scripts": [
@@ -36,12 +39,8 @@
         "https://divar.ir/*",
         "https://snappfood.ir/*"
       ],
-      "js": [
-        "./assets/script/bundle.js",
-        "./assets/script/append_view.js"
-      ],"css":[
-      "./assets/style/tooltip.css"
-    ]
+      "js": ["./assets/script/zepto.1.2.0.min.js", "./assets/script/append_view.js"],
+      "css": ["./assets/style/tooltip.css"]
     }
   ]
 }
