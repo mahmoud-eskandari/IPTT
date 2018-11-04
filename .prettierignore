@@ -1,0 +1,12 @@
+# exclude everything by default
+*.*
+
+# white-list files we want to process
+!*.js
+!*.md
+!*.css
+
+/assets/img/
+/assets/script/zepto.1.2.0.min.js
+/node_modules/
+LICENSE

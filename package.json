@@ -1,0 +1,36 @@
+{
+  "name": "iptt",
+  "version": "2.0.2",
+  "description": "اکستنشن تبدیل مبلغ کالا به ساعت/دستمزد",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint assets/script/popup.js assets/script/append_view.js --fix",
+    "prettier": "prettier  --config ./.prettierrc --ignore-path ./.prettierignore --write **",
+    "fix": "npm run prettier && npm run eslint ",
+    "prettier-dev": "pretty-quick --branch master && npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HosseinMarzban/IPTT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HosseinMarzban/IPTT/issues"
+  },
+  "homepage": "https://github.com/HosseinMarzban/IPTT#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jquery": "^1.3.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0"
+  }
+}
