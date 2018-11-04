@@ -64,13 +64,16 @@ https://chrome.google.com/webstore/detail/iranian-lifetime-calculat/phoehnanhimo
 <p dir="rtl">
 این افزونه در نسخه اولیه میباشد لذا اگر باگ و اشکالی هست را در ریپازیتوری گیتهاب گزارش نمایید.
 </p>
+<p dir="rtl">
+<a href="https://virgool.io/@mahmoudetc/%D8%A7%DA%A9%D8%B3%D8%AA%D9%86%D8%B4%D9%86-%DA%A9%D8%B1%D9%88%D9%85-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%82%DB%8C%D9%85%D8%AA-%D8%A8%D9%87-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D8%B3%D8%AA%D9%85%D8%B2%D8%AF-m2saanql80wb">
+لینک مقاله در ویرگول
+</a>
+</p>
 
 - [Download from Chrome Webstore](https://chrome.google.com/webstore/detail/iranian-lifetime-calculat/phoehnanhimojcbebjldknajipijlmhd)
-  <p dir="rtl">
-  <a href="https://virgool.io/@mahmoudetc/%D8%A7%DA%A9%D8%B3%D8%AA%D9%86%D8%B4%D9%86-%DA%A9%D8%B1%D9%88%D9%85-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D9%82%DB%8C%D9%85%D8%AA-%D8%A8%D9%87-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D8%B3%D8%AA%D9%85%D8%B2%D8%AF-m2saanql80wb">
-  لینک مقاله در ویرگول
-  </a>
-  </p>
+
+
+
 
 ## Developing & Contributing
 
@@ -89,18 +92,12 @@ $ npm run fix
 $ npm run prettier-dev
 ```
 
-#### Help Links:
+#### Short Links:
 
-<a href="https://developer.chrome.com/extensions/getstarted">
-Get start create Chrome extension.
-</a>
-
- <a href="https://developer.chrome.com/extensions/tut_debugging"> 
- How Debug Extension in Chrome? </a>
-<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">
-Get start create Firefox extension.
-</a>
-<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Debugging"> How Debug Extension in Firefox? </a>
+- [Get start create Chrome extension.](https://developer.chrome.com/extensions/getstarted)
+    - [How Debug Extension in Chrome? ](https://developer.chrome.com/extensions/tut_debugging)
+- [Get start create Firefox extension.](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+    - [How Debug Extension in Firefox? ](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Debugging)
 
 ## License
 
