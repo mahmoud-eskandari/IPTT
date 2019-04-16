@@ -7,6 +7,7 @@
  * @constructor
  */
 var LifeTimeCalculator = function (PriceString, Unit, options) {
+    console.log(PriceString);
     if (PriceString.indexOf(',') < 0) {
         return PriceString;
     }
@@ -51,10 +52,10 @@ var CalculateLifeTimeAction = function () {
             $('.js-price-value,del').each(function () {
                 if (result.show_popup) {
                     if ($(this).data('iptt') === undefined) {
-                        $(this).data('iptt', LifeTimeCalculator($(this).html(), "Toman", result));
+                        $(this).data('iptt', LifeTimeCalculator($(this).text(), "Toman", result));
                     }
                 } else {
-                    $(this).html(LifeTimeCalculator($(this).html(), "Toman", result));
+                    $(this).html(LifeTimeCalculator($(this).text(), "Toman", result));
                 }
             });
 
@@ -62,10 +63,10 @@ var CalculateLifeTimeAction = function () {
             $('.c-price__value:not(.js-variant-price)').each(function () {
                 if (result.show_popup) {
                     if ($(this).data('iptt') === undefined) {
-                        $(this).data('iptt', LifeTimeCalculator($(this).html(), "Toman", result));
+                        $(this).data('iptt', LifeTimeCalculator($(this).text(), "Toman", result));
                     }
                 } else {
-                    $(this).html(LifeTimeCalculator($(this).html(), "Toman", result));
+                    $(this).html(LifeTimeCalculator($(this).text(), "Toman", result));
                 }
             });
 
@@ -90,7 +91,7 @@ var CalculateLifeTimeAction = function () {
                         $(this).data('iptt', LifeTimeCalculator($(this).text(), "Toman", result));
                     }
                 } else {
-                    $(this).html(LifeTimeCalculator($(this).html(), "text", result));
+                    $(this).html(LifeTimeCalculator($(this).text(), "text", result));
                 }
             });
             if (!result.show_popup) {
