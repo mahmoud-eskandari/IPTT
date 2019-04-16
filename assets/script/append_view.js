@@ -128,7 +128,7 @@ var CalculateLifeTimeAction = function () {
         }
 
         /**
-         * SnaapFood
+         * SnappFood
          */
 
         if (window.location.href.indexOf('snappfood.ir') > -1) {
@@ -401,11 +401,11 @@ var CalculateLifeTimeAction = function () {
         if (window.location.href.indexOf('torob.com') > -1) {
 
             $('.price').each(function () {
-                var InnerHtml = $(this).html().replace(/[٬]/g, ',');
+                var InnerHtml = $(this).text().replace(/[٬]/g, ',');
                 var From = "";
                 if (InnerHtml.indexOf('از') > -1) {
                     From = "از ";
-                    InnerHtml = InnerHtml.replace("از", '').replace('تومان', '').replace('<!-- -->', '')
+                    InnerHtml = InnerHtml.replace("از", '').replace('تومان', '').replace('<!-- -->', '').replace('<small>', '').replace('</small>', '')
                 }
                 if (result.show_popup) {
                     if ($(this).data('iptt') === undefined) {
